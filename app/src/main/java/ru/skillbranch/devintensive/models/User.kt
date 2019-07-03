@@ -4,7 +4,7 @@ import java.util.Date
 import ru.skillbranch.devintensive.utils.Utils
 
 
-class User(
+data class User(
     val id: String,
     var firstName: String?,
     var lastName: String?,
@@ -36,7 +36,7 @@ class User(
         fun makeUser(fullName: String?): User {
             lastId++
             val (firstName, lastName) = Utils.parseFullName(fullName?.trim())
-            return User(id = "1", firstName = firstName, lastName = lastName)
+            return User(id = "$lastId", firstName = firstName, lastName = lastName)
         }
     }
 

@@ -30,7 +30,7 @@ fun Date.add(value: Int, timeUnits: TimeUnits): Date {
 
 fun Date.humanizeDiff(date: Date = Date()): String {
     val difTime = Date().time - this.time
-    val future : Boolean = difTime < 0
+    val future: Boolean = difTime < 0
 
     return when (abs(difTime)) {
         in 0.rangeTo(SECOND) -> "только что"
@@ -38,7 +38,7 @@ fun Date.humanizeDiff(date: Date = Date()): String {
             if (future) "несколько секунд назад" else "через несколько секунд"
         in (SECOND * 45).rangeTo(SECOND * 75) ->
             if (future) "минуту назад" else "через минуту"
-        in (SECOND * 75).rangeTo(MINUTE * 45) ->{
+        in (SECOND * 75).rangeTo(MINUTE * 45) -> {
             val min = difTime / MINUTE
             if (future) "$min минут" +
                     " назад" else " "
@@ -53,11 +53,11 @@ fun Date.humanizeDiff(date: Date = Date()): String {
     }
 }
 
-private fun butify(value: Int, timeUnits: TimeUnits,future: Boolean):String{
+private fun butify(value: Int, timeUnits: TimeUnits, future: Boolean): String {
 
 
     TimeUnits.SECOND.plural("hehe")
- return " "
+    return " "
 }
 
 enum class TimeUnits {
@@ -68,7 +68,7 @@ enum class TimeUnits {
 }
 
 
-fun TimeUnits.plural(time:String):String{
+fun TimeUnits.plural(time: String): String {
 
     return time
 }
