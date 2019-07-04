@@ -29,7 +29,7 @@ object Utils {
     fun transliteration(payload: String?, divider: String? = " "):String{
 
         val(firstName,lastName) = parseFullName(payload)
-        return "${this.translit(firstName)}$divider${this.translit(lastName)} "
+        return "${this.translit(firstName)}$divider${this.translit(lastName)}"
     }
 
    private fun translit(string: String?): String {
@@ -44,7 +44,7 @@ object Utils {
         )
 
        string?.forEach { c: Char ->
-           tmpString += key[c.toString().toLowerCase()]
+        tmpString += key[c.toString().toLowerCase()] ?: c
        }
 
        return tmpString.capitalize()
